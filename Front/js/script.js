@@ -52,7 +52,7 @@ function verificaBtn(btn, usuario, senha1) {
       let nome = JSON.parse(localStorage.getItem(usuario.value));
 
       if (nome != null && nome.senha != null) {
-        Enter.setAttribute("href", "recados.html");
+        Enter.setAttribute("href", "/Front/pages/recados.html");
       } else {
         alertUsuario.style.display = "block";
         setTimeout(function(){
