@@ -1,0 +1,35 @@
+body{
+    background-color: #f8f8f8;
+}
+
+#recados_container{
+    background:linear-gradient(to bottom,#75d0e2,#8ebae2);
+    background-color: #fff;
+    padding: 50px;
+    box-shadow: 0.5px 15px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    margin: 25px auto;
+}
+#recados_container h2{
+    font-weight: 900;
+}
+
+@media(max-width: 768px){
+    #btnSalvar{
+        width: 100%;
+        margin-top: 10px;
+    }
+    #btnRecado{
+        width: 100%;
+        margin-top: 10px;
+    }
+    #divBtn{
+        display: flex;
+        flex-direction: column;
+    }
+    .btn-rec{
+        height: 20px;
+        font-size: 7pt;
+    }
+
+}
