@@ -7,8 +7,8 @@ let rigister = document.querySelector("#tabele-recados");
 let alertRecado = document.querySelector("#alertRecadoCadastrado");
 let impModalDesc = document.querySelector("#inputDesc");
 let impModalDet = document.querySelector("#inputDet");
-let url = "https://apprecadorgrow.herokuapp.com/";
-
+let url = "https://apprecados.herokuapp.com/";
+let contador = 0;
 let arrayColid = [];
 let modalEditar = new bootstrap.Modal(document.getElementById("modal"));
 
@@ -64,10 +64,12 @@ window.addEventListener("load", (event) => {
   axios
     .get(`${url}recados`)
     .then((res) => {
+      console.log(res.data)
       return res.data;
     })
     .then((data) => {
       for (let i = 0; i < data.length; i++) {
+        contador++
         let bodyTable = document.querySelector("#tbody");
         //Popular a tabela
         let linha = document.createElement("tr");
@@ -76,7 +78,7 @@ window.addEventListener("load", (event) => {
         dvb.id = "divBtn";
         dvb.style.display = "flex";
         dvb.style.justifyContent = "center";
-        colId.innerHTML = data[i].id;
+        colId.innerHTML = contador;
         arrayColid.push(colId);
         linha.appendChild(colId);
 
@@ -125,7 +127,7 @@ function creaButtonApagar() {
     let div = btnReturn.parentNode;
     let col = div.parentNode;
     let linha = col.parentNode;
-    let num = linha.children[0].innerHTML;
+    let num = linha.children[1].innerHTML;
     console.log(num);
 
     axios.delete(`${url}recados/apagar/${num}`).then(() => {
@@ -158,7 +160,7 @@ function creaButtonEditar() {
         // linha.children[2].innerHTML = impModalDet.value;
         // impModalDet.value = "";
         // impModalDesc.value = "";
-        let num = linha.children[0].innerHTML;
+        let num = linha.children[1].innerHTML;
         console.log(num);
         axios
           .put(`${url}recados/alterar/${num}`, {
