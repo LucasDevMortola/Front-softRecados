@@ -8,7 +8,7 @@ let impModalDesc = document.querySelector("#inputDesc");
 let impModalDet = document.querySelector("#inputDet");
 
 
-let url = "https://apprecados.herokuapp.com/";
+let url ="https://apprecados.herokuapp.com/";
 
 let contador = 0;
 let arrayColid = [];
